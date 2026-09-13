@@ -8,6 +8,8 @@
 </script>
 
 <svelte:head>
+	<title>EverywhereBlair</title>
+	<meta name="description" content="Technical writing, research, and ideas." />
 	<link rel="icon" href={favicon} />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
