@@ -97,6 +97,10 @@
     font-family: var(--font-serif); /* body copy is serif by default */
   }
 
+  p {
+    color: var(--color-text-primary);
+  }
+
   /* Nav, buttons, form controls, metadata (dates, "written by", tags):
      opt back into sans explicitly. Apply this class at the component
      level rather than un-setting it per-element here. */
