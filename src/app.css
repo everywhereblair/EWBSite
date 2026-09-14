@@ -13,6 +13,11 @@
    ============================================================ */
 
 @import "tailwindcss";
+@import "@fontsource/fraunces/400.css";
+@import "@fontsource/fraunces/500.css";
+@import "@fontsource/fraunces/600.css";
+@import "@fontsource/source-serif-4/400.css";
+@import "@fontsource/source-serif-4/600.css";
 
 @theme {
   /* Neutrals [derived from Nordblau Metallic's oklch base ramp] */
@@ -44,10 +49,15 @@
   --color-purple: #c187d3;
   --color-pink:   #ff98c1;
 
-  /* Typography — OPEN FLAG: "Raveo" is Velocity's bundled webfont,
-     no confirmed web license. Falls back to Inter until resolved. */
-  --font-sans: "Raveo", "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont,
-               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Typography — v2: retired Raveo (no confirmed web license) in favor
+     of a serif pairing per Blair's Eigenwise-inspired direction.
+     Sans stays on nav/buttons/metadata — keeping that split is what
+     stops an all-serif page from reading as twee. Both below are
+     free via Google Fonts / Fontsource, no license question. */
+  --font-display: "Fraunces", "Georgia", serif;       /* h1–h3, hero copy */
+  --font-serif:   "Source Serif 4", "Georgia", serif; /* body copy, article text */
+  --font-sans:    "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont,
+                  "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* nav, buttons, labels, metadata */
   --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   --ease-vl-out: cubic-bezier(0.3, 0.75, 0, 1);
@@ -84,11 +94,20 @@
   html {
     background: var(--color-bg-base);
     color: var(--color-text-primary);
+    font-family: var(--font-serif); /* body copy is serif by default */
+  }
+
+  /* Nav, buttons, form controls, metadata (dates, "written by", tags):
+     opt back into sans explicitly. Apply this class at the component
+     level rather than un-setting it per-element here. */
+  .ui-sans {
     font-family: var(--font-sans);
   }
 
   /* Header hierarchy: one cyan hue walking toward grey with depth,
-     brighter = higher rank — literal port of content-typography.css */
+     brighter = higher rank — literal port of content-typography.css.
+     Now on the display serif, not the old sans stack. */
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
   h1 { color: var(--h1-color); }
   h2 { color: var(--h2-color); }
   h3 { color: var(--h3-color); }
@@ -96,7 +115,10 @@
   h5 { color: var(--h5-color); }
   h6 { color: var(--h6-color); }
 
-  /* Overshoot underline: the rule runs past the text, not full-width */
+  /* Overshoot underline: the rule runs past the text, not full-width.
+     Re-check padding-right against Fraunces at hero size (~48-64px) —
+     it was tuned for a narrower sans face and may overshoot too far
+     or not far enough at display sizes; adjust by eye once live. */
   h1, h2, h3 {
     display: inline-block;
     border-bottom: 2px solid var(--color-accent-edge-strong);
@@ -104,6 +126,16 @@
     padding-right: 3.5em;
   }
   h1 { padding-right: 5em; }
+
+  /* Italic offset sub-header / tagline — e.g. "Building AI agents,
+     atomically." under a project title. Reuses the external-link
+     blue rather than inventing a new hex; it's already dark-mode
+     tuned and unclaimed as a text color. */
+  .tagline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--link-external-color);
+  }
 
   a {
     color: var(--color-accent);

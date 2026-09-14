@@ -1,0 +1,1 @@
+import{h as e,p as t}from"../chunks/BG66uVZi.js";import"../chunks/xihTtKlq.js";var n=e(`<div class="max-w-4xl mx-auto px-6 py-16"><h1 class="text-4xl mb-12">Writing</h1> <div class="space-y-8"><p class="text-text-muted">[PLACEHOLDER] Writing entries will appear here.</p></div></div>`);function r(e){var r=n();t(e,r)}export{r as component};
