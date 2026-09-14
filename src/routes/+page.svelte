@@ -2,7 +2,7 @@
 	<section class="mb-16 flex flex-col sm:flex-row gap-12 items-start sm:items-center">
 		<div class="flex-shrink-0">
 			<img
-				src="/blair-headshot.jpg"
+				src="/blair-headshot.JPG"
 				alt="Blair Williams"
 				class="w-48 h-48 rounded-full object-cover ring-2 ring-accent ring-offset-4"
 				style="ring-offset-color: var(--color-bg-base)"
