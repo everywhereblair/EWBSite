@@ -1,1 +1,11 @@
 node_modules/
+.svelte-kit/
+.wrangler/
+.nimbalyst/
+.claude/
+build/
+.DS_Store
+.env
+.env.*
+!.env.example
+scripts/publish.local.json
